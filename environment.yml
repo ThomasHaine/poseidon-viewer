@@ -11,7 +11,7 @@ dependencies:
 - lmdb
 - seaduck
 - dask
-- jupyter-book
+- jupyter-book=0.15.1
 - pre-commit
 - pytest
 - make
