@@ -90,15 +90,17 @@ export default {
   },
   methods: {
     getPrettyDate(h) {
-      var d = new Date(Date.parse('2012-04-25T00:00:00.000000Z'))
-      d.setHours(d.getHours()+h)
-      const formattedDate = `${d.getFullYear()}-${d.getMonth().toString().padStart(2, '0')}-${d.getDay().toString().padStart(2, '0')} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2,'0')}:${d.getSeconds().toString().padStart(2, '0')}Z`;
+      var d = new Date(Date.parse('2011-09-13T00:00:00.000000Z'))
+      d.setUTCHours(d.getUTCHours() + h)
+      const formattedDate =
+      `${d.getUTCFullYear()}-${(d.getUTCMonth() + 1).toString().padStart(2, '0')}-${d.getUTCDate().toString().padStart(2, '0')} ` +
+      `${d.getUTCHours().toString().padStart(2, '0')}:${d.getUTCMinutes().toString().padStart(2, '0')}:${d.getUTCSeconds().toString().padStart(2, '0')}Z`
       return formattedDate
-    },
-    getDate(h) {
-      var d = new Date(Date.parse('2012-04-25T00:00:00.000000Z'))
-      d.setHours(d.getHours()+h)
-      return d.toISOString()
+},
+     getDate(h) {
+       const d = new Date('2011-09-13T00:00:00.000Z')
+       d.setUTCHours(d.getUTCHours() + h)
+       return d.toISOString()
     },
     getUrlTemplate() {
         return process.env.VUE_APP_SERVICE_URL + `/api/values/${this.variable.name}/${this.timestamp.toString().padStart(4,'0')}/{z}/{x}/{y}/${this.depth}?colormap=${this.colormap}&min=${this.min}&max=${this.max}`;
