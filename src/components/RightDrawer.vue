@@ -2,44 +2,90 @@
   <v-container>
     <v-form>
 
-    <v-container>
-    <v-row align="center">
-    <v-col>
-    <a href="https://www.poseidon-ocean.net/" target="_blank" tooltip="Poseidon project website">
-      <v-img
-        :width="180"
-        src="../assets/poseidon_logo_web.png"
-      ></v-img>
-    </a>
-    </v-col>
-    <v-spacer></v-spacer>
+   <v-container>
+   <v-row align="center">
+   <v-col>
+     <v-tooltip location="bottom">
+       <template v-slot:activator="{ props }">
+         <a
+           href="https://www.poseidon-ocean.net/"
+           target="_blank"
+           rel="noopener noreferrer"
+           v-bind="props"
+         >
+           <v-img
+             :width="180"
+             src="../assets/poseidon_logo_web.png"
+           ></v-img>
+         </a>
+       </template>
+       <span>Poseidon project website</span>
+     </v-tooltip>
+   </v-col>
 
-    <v-col>
-    <a href="https://github.com/sciserver/poseidon-viewer" target="_blank">
-      <v-img
-        :width="50"
-        src="../assets/github-mark.png"
-      ></v-img>
-    </a>
-    </v-col>
-    <v-spacer></v-spacer>
+   <v-spacer></v-spacer>
+   
+   <v-col>
+     <v-tooltip location="bottom">
+       <template v-slot:activator="{ props }">
+         <a
+           href="https://github.com/sciserver/poseidon-viewer"
+           target="_blank"
+           rel="noopener noreferrer"
+           v-bind="props"
+         >
+           <v-img
+             :width="50"
+             src="../assets/github-mark.png"
+           ></v-img>
+         </a>
+       </template>
+       <span>Poseidon Viewer GitHub repository</span>
+     </v-tooltip>
+   </v-col>
 
-    <v-col>
-    <a href="https://sciserver.github.io/poseidon-viewer/intro.html" target="_blank">
-      <v-img
-        :width="50"
-        src="../assets/jb_logo-square.svg"
-      ></v-img>
-    </a>
-    </v-col>
-    </v-row>
-    </v-container>
+   <v-spacer></v-spacer>
+   
+   <v-col>
+     <v-tooltip location="bottom">
+       <template v-slot:activator="{ props }">
+         <a
+           href="https://sciserver.github.io/poseidon-viewer/intro.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           v-bind="props"
+         >
+           <v-img
+             :width="50"
+             src="../assets/jb_logo-square.svg"
+           ></v-img>
+         </a>
+       </template>
+       <span>Poseidon Viewer documentation</span>
+     </v-tooltip>
+   </v-col>
+
+   </v-row>
+   </v-container>
+
+
+    <v-col class="text-center">
+    <a
+       href="https://www.poseidon-ocean.net/products/datasets/llc4320-dataset/"
+       target="_blank"
+       title="Open LLC4320 dataset documentation"
+       class="text-h5 font-weight-bold text-decoration-none"
+     >
+       LLC4320 dataset
+     </a>
+     </v-col>
 
     <v-divider style="margin: 8px 0 8px 0"/>
 
       <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
@@ -61,6 +107,7 @@
       <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
@@ -76,13 +123,14 @@
       <span>Select colormap</span>
       </v-tooltip>
 
-      <v-divider style="margin: 8px 0 8px 0"/>
+      <v-divider style="margin: 8px 0 0 0"/>
 
           {{variable.units}}<v-img contain :src="colormapUrl" />
 
       <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
@@ -105,6 +153,7 @@
       <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
@@ -123,11 +172,12 @@
       </template>
       <span>Select maximum value</span>
       </v-tooltip>
-      <v-divider style="margin: 8px 0 8px 0"/>
+      <v-divider style="margin: 8px 0 0 0"/>
 
       <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
@@ -164,10 +214,11 @@
       <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
-      <v-row style="margin-top:16px">
+      <v-row>
         <v-col class="col-12">
           <v-row align="center">
             <v-text-field
@@ -199,6 +250,7 @@
       <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
@@ -235,6 +287,7 @@
      <v-tooltip left>
       <template v-slot:activator="{ on, attrs }">
       <v-container
+        class="pa-0 ma-0"
         v-bind="attrs"
         v-on="on"
       >
@@ -250,6 +303,13 @@
 
       <p class="text-right">
       Click anywhere to see the spot value of the field.
+    </p>
+
+    <p class="text-left text-caption">
+     A few boundary layer thickness timesteps have missing data. See
+    <a href="https://www.poseidon-ocean.net/products/datasets/llc4320-dataset/" target="_blank" rel="noopener noreferrer">
+    full access instructions
+    </a>.
     </p>
 
     </v-form>
@@ -311,9 +371,11 @@ export default {
   },
   methods: {
     getPrettyDate(h) {
-      var d = new Date(Date.parse('2012-04-25T00:00:00.000000Z'))
-      d.setHours(d.getHours()+h)
-      const formattedDate = `${d.getFullYear()}-${d.getMonth().toString().padStart(2, '0')}-${d.getDay().toString().padStart(2, '0')} ${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2,'0')}:${d.getSeconds().toString().padStart(2, '0')}Z`;
+      var d = new Date(Date.parse('2011-09-13T00:00:00.000000Z'))
+      d.setUTCHours(d.getUTCHours() + h)
+      const formattedDate =
+      `${d.getUTCFullYear()}-${(d.getUTCMonth() + 1).toString().padStart(2, '0')}-${d.getUTCDate().toString().padStart(2, '0')} ` +
+      `${d.getUTCHours().toString().padStart(2, '0')}:${d.getUTCMinutes().toString().padStart(2, '0')}:${d.getUTCSeconds().toString().padStart(2, '0')}Z`
       return formattedDate
     },
     updateValues() {
